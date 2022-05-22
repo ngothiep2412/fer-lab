@@ -1,0 +1,22 @@
+{
+  "name": "thiepnxse151074_lab2",
+  "version": "1.0.0",
+  "description": "This is my lab",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngothiep2412/fer-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ngothiep2412/fer-lab/issues"
+  },
+  "homepage": "https://github.com/ngothiep2412/fer-lab#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
