@@ -1,0 +1,40 @@
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+.nav-item a {
+  color: #242f9b;
+}
+.carousel {
+  background: #512da8;
+}
+.carousel-item {
+  height: 300px;
+}
+.carousel-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 300px;
+  object-fit: cover;
+}
+#nonSmoking,
+#smoking {
+  display: none;
+}
+
+.card-body {
+  background-color: #7858a6;
+  color: white;
+}
+
+.modal-header .close {
+  color: white;
+  outline: none;
+}
+.card-header {
+  background-color: transparent;
+  border: none;
+}
