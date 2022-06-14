@@ -1,4 +1,3 @@
-import { Component } from "react";
 import {
   Card,
   CardImg,
@@ -61,5 +60,3 @@ class Menu extends Component {
     );
   }
 }
-
-export default Menu;
