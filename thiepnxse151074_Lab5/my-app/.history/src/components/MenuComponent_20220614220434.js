@@ -26,11 +26,9 @@ class Menu extends Component {
       return (
         <Card>
           <CardImg top src={dish.image} alt={dish.name} />
-          <div className="bg-[#FCF8E8] p-2">
-            <div className="text-[#DF7861] text-center uppercase mb-2">
-              <strong>{dish.name}</strong>
-            </div>
-            <div className="text-[#DF7861] text-left">{dish.description}</div>
+          <div className="bg-blue-200 p-2">
+            <div className="font-semibold text-left mb-2">{dish.name}</div>
+            <div className="text-left">{dish.description}</div>
           </div>
         </Card>
       );
@@ -40,14 +38,13 @@ class Menu extends Component {
     if (dish != null)
       return (
         <Card>
-          <div className="bg-[#FCF8E8] text-[#DF7861] p-2 h-[540px] leading-relaxed">
+          <div className="bg-blue-200 p-2">
             {dish.comments.map((item) => {
-              var date = new Date(item.date);
               return (
-                <div key={item.id} className="font-semibold text-left mb-5">
+                <div key={item.id} className="font-semibold text-left mb-2">
                   <h5>{item.comment}</h5>
                   <span>
-                    By: <strong>{item.author}</strong>, {date.toDateString()}
+                    By:<strong>{item.author}</strong>, {Date.parse(item.date)}
                   </span>
                 </div>
               );
@@ -73,7 +70,7 @@ class Menu extends Component {
                 src={dish.image}
                 alt={dish.name}
               />
-              <div className="w-full absolute bottom-[8px] text-center bg-[#ECB390] text-white uppercase">
+              <div className="w-full absolute bottom-0 text-center bg-blue-400 text-white uppercase">
                 <CardTitle>{dish.name}</CardTitle>
               </div>
             </div>
@@ -86,10 +83,10 @@ class Menu extends Component {
       <div className="container">
         <div className="row">{menu}</div>
         <div className="row">
-          <div className="col-12 col-md-5 m-2 gap-4">
+          <div className="col-12 col-md-5 m-1">
             {this.renderDish(this.state.selectedDish)}
           </div>
-          <div className="col-12 col-md-5 m-2 gap-4">
+          <div className="col-12 col-md-5 m-1">
             {this.renderDishComment(this.state.selectedDish)}
           </div>
         </div>

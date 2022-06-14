@@ -27,8 +27,8 @@ class Menu extends Component {
         <Card>
           <CardImg top src={dish.image} alt={dish.name} />
           <div className="bg-[#FCF8E8] p-2">
-            <div className="text-[#DF7861] text-center uppercase mb-2">
-              <strong>{dish.name}</strong>
+            <div className="text-[#DF7861] font-semibold text-center mb-2">
+              {dish.name}
             </div>
             <div className="text-[#DF7861] text-left">{dish.description}</div>
           </div>
