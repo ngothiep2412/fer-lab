@@ -18,6 +18,7 @@ class Menu extends Component {
 
   render() {
     const menu = this.props.dishes.map((dish) => {
+      console.log(this.state.selectedDish);
       return (
         <div className="col-12 col-md-5 m-2 gap-4 mt-4">
           <div

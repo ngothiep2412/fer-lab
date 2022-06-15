@@ -1,7 +1,12 @@
 import { Component } from "react";
-
-import { CardTitle } from "reactstrap";
-import DishDetail from "./DishdetailComponent ";
+import {
+  Card,
+  CardImg,
+  CardImgOverlay,
+  CardText,
+  CardBody,
+  CardTitle,
+} from "reactstrap";
 
 class Menu extends Component {
   constructor(props) {
@@ -14,6 +19,22 @@ class Menu extends Component {
 
   onDishSelect(dish) {
     this.setState({ selectedDish: dish });
+  }
+
+  renderDish(dish) {
+    if (dish != null)
+      return (
+        <Card>
+          <CardImg top src={dish.image} alt={dish.name} />
+          <div className="bg-[#FCF8E8] p-2">
+            <div className="text-[#DF7861] text-center uppercase mb-2">
+              <strong>{dish.name}</strong>
+            </div>
+            <div className="text-[#DF7861] text-left">{dish.description}</div>
+          </div>
+        </Card>
+      );
+    else return <div></div>;
   }
 
   render() {
@@ -40,23 +61,14 @@ class Menu extends Component {
       );
     });
 
-    // return (
-    //   <div className="container">
-    //     <div className="row">{menu}</div>
-    //     <div className="row">
-    //       <div className="col-12 col-md-5 m-2 gap-4">
-    //         {this.renderDish(this.state.selectedDish)}
-    //       </div>
-    //       <div className="col-12 col-md-5 m-2 gap-4">
-    //         {this.renderDishComment(this.state.selectedDish)}
-    //       </div>
-    //     </div>
-    //   </div>
-    // );
     return (
       <div className="container">
         <div className="row">{menu}</div>
-        <DishDetail selectedDish={this.state.selectedDish} />;
+        <div className="row">
+          <div className="col-12 col-md-5 m-2 gap-4">
+            {this.renderDish(this.state.selectedDish)}
+          </div>
+        </div>
       </div>
     );
   }
