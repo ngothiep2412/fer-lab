@@ -26,8 +26,10 @@ class Main extends Component {
     const HomePage = () => {
       return (
         <Home
-          bath={this.state.bath.filter((dish) => dish.category)[0]}
-          bedding={this.state.bedding.filter((promo) => promo.category)[0]}
+          bath={this.state.bath.filter((dish) => dish.featured)[0]}
+          promlightingotion={
+            this.state.bedding.filter((promo) => promo.featured)[0]
+          }
         />
       );
     };

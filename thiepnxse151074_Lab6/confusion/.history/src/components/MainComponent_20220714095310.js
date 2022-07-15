@@ -26,8 +26,9 @@ class Main extends Component {
     const HomePage = () => {
       return (
         <Home
-          bath={this.state.bath.filter((dish) => dish.category)[0]}
-          bedding={this.state.bedding.filter((promo) => promo.category)[0]}
+          dish={this.state.bath.filter((dish) => dish.featured)[0]}
+          promotion={this.state.bedding.filter((promo) => promo.featured)[0]}
+          leader={this.state.leaders.filter((leader) => leader.featured)[0]}
         />
       );
     };
@@ -51,7 +52,11 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={HomePage} />
-          <Route exact path="/aboutus" />
+          <Route
+            exact
+            path="/aboutus"
+            component={() => <About leaders={this.state.leaders} />}
+          />
           <Route
             exact
             path="/menu"

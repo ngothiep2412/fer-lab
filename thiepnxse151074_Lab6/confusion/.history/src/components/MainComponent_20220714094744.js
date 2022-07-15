@@ -5,18 +5,20 @@ import Menu from "./MenuComponent";
 import DishDetail from "./DishdetailComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import { BATH_SHOWER } from "../shared/bath_shower";
+import { BATH } from "../shared/bath_shower";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { BEDDING } from "../shared/bedding";
 import { LIGHTING } from "../shared/lighting";
+import Contact from "./ContactComponent";
+import About from "./AboutComponent";
 
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bath: BATH_SHOWER,
-      lighting: LIGHTING,
-      bedding: BEDDING,
+      dishes: BATH,
+      comments: LIGHTING,
+      promotions: BEDDING,
     };
   }
   onDishSelect(dishId) {
@@ -26,8 +28,9 @@ class Main extends Component {
     const HomePage = () => {
       return (
         <Home
-          bath={this.state.bath.filter((dish) => dish.category)[0]}
-          bedding={this.state.bedding.filter((promo) => promo.category)[0]}
+          dish={this.state.dishes.filter((dish) => dish.featured)[0]}
+          promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
+          leader={this.state.leaders.filter((leader) => leader.featured)[0]}
         />
       );
     };
@@ -35,11 +38,11 @@ class Main extends Component {
       return (
         <DishDetail
           dish={
-            this.state.bath.filter(
+            this.state.dishes.filter(
               (dish) => dish.id === parseInt(match.params.dishId, 10)
             )[0]
           }
-          comments={this.state.lighting.filter(
+          comments={this.state.comments.filter(
             (comment) => comment.dishId === parseInt(match.params.dishId, 10)
           )}
         />
@@ -51,14 +54,19 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={HomePage} />
-          <Route exact path="/aboutus" />
+          <Route
+            exact
+            path="/aboutus"
+            component={() => <About leaders={this.state.leaders} />}
+          />
           <Route
             exact
             path="/menu"
-            component={() => <Menu dishes={this.state.bath} />}
+            component={() => <Menu dishes={this.state.dishes} />}
           />
 
           <Route path="/menu/:dishId" component={DishWithId} />
+          <Route exact path="/contactus" component={Contact}></Route>
           <Redirect to="/home" />
         </Switch>
         <Footer />
